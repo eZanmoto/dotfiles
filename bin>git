@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Wrapper script for making sure commit message to `git` isn't greater than 50
+# characters.
+
+ARG=1
+while [ $ARG -lt $# ] ; do
+	if [ "${!ARG}" = "-m" ]; then
+		ARG=`expr $ARG + 1`
+		# Use `printf` to suppress trailing newline, because -n flag is
+		# not available with `echo` in `sh`.
+		if [ `printf "${!ARG}" | wc -c` -gt 50 ]; then
+			echo "Commit message cannot be more than 50 characters"
+			exit 1
+		fi
+	fi
+	ARG=`expr $ARG + 1`
+done
+
+exec /usr/bin/git "$@"
