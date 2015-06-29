@@ -26,8 +26,9 @@ nnoremap <Down> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " General settings {{{1
 
-"" Syntax highlighting {{{2
+"" Colours {{{2
 syntax on
+set background=dark
 
 "" Default options {{{2
 set autoindent
