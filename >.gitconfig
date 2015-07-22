@@ -1,3 +1,5 @@
 [user]
 	email = ezanmoto@gmail.com
 	name = Sean Kelleher
+[push]
+	default = simple
