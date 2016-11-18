@@ -1,10 +1,5 @@
 " Maintainer: Sean Kelleher
 
-"" We set the encoding of this file to UTF-8 so that the UTF-8-encoded value of
-"" `listchars` can be read properly. It also prevents an error concerning the
-"" failure to read this value from being output.
-setlocal encoding=utf-8
-
 " General {{{1
 
 "" Leader {{{2
@@ -55,12 +50,15 @@ set smartindent
 set spell
 
 "" Default values {{{2
-""
+set colorcolumn=80
+"" We set the encoding of this file to UTF-8 so that the UTF-8-encoded value of
+"" `listchars` can be read properly. It also prevents an error concerning the
+"" failure to read this value from being output.
+set encoding=utf-8
+set laststatus=2
 "" `listchars` value adapted from
 ""
 ""     https://gist.github.com/adinapoli/4723877
-set colorcolumn=80
-set laststatus=2
 set listchars=tab:\ ▸,eol:¬,trail:·
 set shiftwidth=4
 set softtabstop=4
@@ -85,11 +83,12 @@ autocmd BufNewFile,BufRead *.py setlocal foldmethod=indent
 "" Markdown {{{2
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
+"" .vimrc {{{2
+autocmd BufNewFile,BufRead .vimrc setlocal foldmethod=marker
+
 " Key mappings {{{1
 
 inoremap jk <Esc>
 
-"" Clear highlighting and message on refresh.
+"" Clear highlighting and message on refresh. {{{2
 nnoremap <C-L> :let @/ = ""<CR>:echo<CR><C-L>
-
-" vim: set foldmethod=marker
