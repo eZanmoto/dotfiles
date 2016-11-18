@@ -1,11 +1,19 @@
 " Maintainer: Sean Kelleher
 
+"" We set the encoding of this file to UTF-8 so that the UTF-8-encoded value of
+"" `listchars` can be read properly. It also prevents an error concerning the
+"" failure to read this value from being output.
+setlocal encoding=utf-8
+
 " General {{{1
 
 "" Leader {{{2
 let mapleader = "\<space>"
 
 "" Automatic saving and restoring of folds {{{2
+""
+"" Note that these require the `$HOME/.vim` directory to exist or they will
+"" output an error when `mkview` is called.
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
