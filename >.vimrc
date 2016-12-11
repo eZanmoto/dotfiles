@@ -92,3 +92,6 @@ inoremap jk <Esc>
 
 "" Clear highlighting and message on refresh. {{{2
 nnoremap <C-L> :let @/ = ""<CR>:echo<CR><C-L>
+
+"" NERDTree shortcuts. {{{2
+nnoremap <C-H> :NERDTree<CR>
