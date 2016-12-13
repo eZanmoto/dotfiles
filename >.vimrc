@@ -94,4 +94,4 @@ inoremap jk <Esc>
 nnoremap <C-L> :let @/ = ""<CR>:echo<CR><C-L>
 
 "" NERDTree shortcuts. {{{2
-nnoremap <C-H> :NERDTree<CR>
+nnoremap <C-H> :NERDTreeToggle<CR>
