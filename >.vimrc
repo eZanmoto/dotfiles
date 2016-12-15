@@ -42,12 +42,13 @@ set incsearch
 set nocompatible
 set noerrorbells
 set nohidden
+set nospell
 set novisualbell
+set nowrap
 set ruler
 set showcmd
 set smartcase
 set smartindent
-set spell
 
 "" Default values {{{2
 set colorcolumn=80
@@ -74,17 +75,21 @@ set textwidth=80
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 autocmd BufNewFile,BufRead *.go setlocal shiftwidth=8
 autocmd BufNewFile,BufRead *.go setlocal softtabstop=8
+autocmd BufNewFile,BufRead *.go setlocal spell
 autocmd BufNewFile,BufRead *.go setlocal tabstop=8
 
 "" Python {{{2
 autocmd BufNewFile,BufRead *.py setlocal colorcolumn=79
 autocmd BufNewFile,BufRead *.py setlocal foldmethod=indent
+autocmd BufNewFile,BufRead *.py setlocal spell
 
 "" Markdown {{{2
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+autocmd BufNewFile,BufRead *.md setlocal spell
 
 "" .vimrc {{{2
 autocmd BufNewFile,BufRead .vimrc setlocal foldmethod=marker
+autocmd BufNewFile,BufRead .vimrc setlocal spell
 
 " Key mappings {{{1
 
