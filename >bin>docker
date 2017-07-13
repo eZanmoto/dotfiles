@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Wrapper script for making sure commit message to `git` isn't greater than 50
+# characters.
+
+# FIXME We assume for now that `run` is the second argument to the `docker`
+# command.
+
+if [ "$1" = "run" ] && [ $# -gt 1 ] ; then
+    arg=2
+    cont=0
+    while [ $arg -lt $# ] ; do
+        case "${!arg}" in
+            --rm|--name|--name=*)
+                cont=1
+                ;;
+        esac
+        arg=`expr $arg + 1`
+    done
+
+    if [ $cont -eq 0 ] ; then
+        echo "Please pass at least a '--name' or '--rm' parameter to 'run'" >&2
+        exit 1
+    fi
+fi
+
+exec /usr/bin/docker "$@"
