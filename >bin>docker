@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Wrapper script for making sure commit message to `git` isn't greater than 50
-# characters.
+# Wrapper script for making sure that `docker run` is called with at least a
+# `--name` or `--rm` parameter.
+#
+# This functionality is to help prevent build-up of containers whose purpose is
+# unknown.
 
 # FIXME We assume for now that `run` is the second argument to the `docker`
 # command.
