@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# `$0` commits the current index as a new "WIP" commit, or, if the last commit
+# was a "WIP" commit, adds the current index to the previous commit.
+
+set -o errexit
+
+last_msg="$(git log -1 --format='%s')"
+
+if [ "$last_msg" = WIP ] ; then
+    git commit \
+        --no-verify \
+        --amend \
+        --no-edit
+else
+    git commit \
+        --no-verify \
+        --message=WIP
+fi

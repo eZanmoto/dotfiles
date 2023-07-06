@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# `$0` resets the last commit if it was a "WIP" commit, i.e. it removes the
+# commit and keeps its changes in the current working directory.
+
+set -o errexit
+
+last_msg="$(git log -1 --format='%s')"
+
+if [ "$last_msg" != WIP ] ; then
+    echo "can't resume: last commit message wasn't \"WIP\"" >&2
+    exit 1
+fi
+
+git reset \
+    HEAD^
